@@ -1,7 +1,7 @@
 {
   "name": "pikchr-wasm",
   "description": "A fast and small port of Pikchr to WASM.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/speed.js",
   "types": "dist/speed.d.ts",
   "sideEffects": false,
