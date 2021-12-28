@@ -34,6 +34,9 @@
     "small",
     "svg"
   ],
+  "dependencies": {
+    "once": "npm:@fabiospampinato/once@^1.0.0"
+  },
   "devDependencies": {
     "rimraf": "^3.0.2",
     "typescript": "^4.4.3",

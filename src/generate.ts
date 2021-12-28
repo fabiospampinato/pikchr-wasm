@@ -1,4 +1,8 @@
 
+/* IMPORT */
+
+import once from 'once';
+
 /* MAIN */
 
 const generate = ( Module: Function ) => {
@@ -9,13 +13,11 @@ const generate = ( Module: Function ) => {
 
     /* LIFECYCLE API */
 
-    loadWASM: async (): Promise<void> => {
-
-      if ( instance ) return;
+    loadWASM: once (async (): Promise<void> => {
 
       instance = await Module ();
 
-    },
+    }),
 
     /* API */
 
