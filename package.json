@@ -1,29 +1,25 @@
 {
   "name": "pikchr-wasm",
+  "repository": "github:fabiospampinato/pikchr-wasm",
   "description": "A fast and small port of Pikchr to WASM.",
   "version": "1.0.1",
-  "main": "dist/speed.js",
-  "types": "dist/speed.d.ts",
+  "type": "module",
   "sideEffects": false,
+  "main": "dist/speed.js",
+  "types": "./dist/speed.d.ts",
+  "exports": {
+    ".": "./dist/speed.js",
+    "./size": "./dist/size.js",
+    "./speed": "./dist/speed.js"
+  },
   "scripts": {
-    "clean": "rimraf dist",
-    "compile": "tsc --skipLibCheck && tstei ./dist/size.js && tstei ./dist/speed.js",
-    "compile:watch": "tsc --skipLibCheck --watch",
-    "test": "node test/index.js",
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "compile:watch": "tsex compile --watch",
+    "test": "tsex test",
+    "test:watch": "tsex test --watch",
     "update": "bash pikchr/update.sh",
     "prepublishOnly": "npm run clean && npm run compile && npm run test"
-  },
-  "bugs": {
-    "url": "https://github.com/fabiospampinato/pikchr-wasm/issues"
-  },
-  "license": "MIT",
-  "author": {
-    "name": "Fabio Spampinato",
-    "email": "spampinabio@gmail.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fabiospampinato/pikchr-wasm.git"
   },
   "keywords": [
     "pic",
@@ -35,11 +31,11 @@
     "svg"
   ],
   "dependencies": {
-    "once": "npm:@fabiospampinato/once@^1.0.0"
+    "once": "npm:@fabiospampinato/once@2.0.0"
   },
   "devDependencies": {
-    "rimraf": "^3.0.2",
-    "typescript": "^4.4.3",
-    "typescript-transform-export-interop": "^1.0.4"
+    "fava": "^0.0.6",
+    "tsex": "^1.1.1",
+    "typescript": "^4.6.3"
   }
 }

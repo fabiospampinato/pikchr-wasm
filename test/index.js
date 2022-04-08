@@ -1,30 +1,38 @@
 
 /* IMPORT */
 
-const {default: pindex} = require ( '..' );
-const {default: psize} = require ( '../size' );
-const {default: pspeed} = require ( '../speed' );
+import {describe} from 'fava';
+import psize from '../dist/size.js';
+import pspeed from '../dist/speed.js';
 
 /* MAIN */
 
-const test = async Pikchr => {
+describe ( 'pikchr', () => {
 
-  const markup = `box`;
+  for ( const [pikchr, name] of [[psize, 'size'], [pspeed, 'speed']] ) {
 
-  const svg = (
-    `<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 112.32 76.32">\n` +
-      `<path d="M2,74L110,74L110,2L2,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />\n` +
-    `</svg>\n`
-  );
+    describe ( name, it => {
 
-  await Pikchr.loadWASM ();
+      it ( 'works', async t => {
 
-  const output = Pikchr.render ( markup );
+        const markup = `box`;
 
-  console.assert ( output === svg, 'Rendering works' );
+        const svg = (
+          `<svg xmlns='http://www.w3.org/2000/svg' class="pikchr" viewBox="0 0 112.32 76.32">\n` +
+            `<path d="M2,74L110,74L110,2L2,2Z"  style="fill:none;stroke-width:2.16;stroke:rgb(0,0,0);" />\n` +
+          `</svg>\n`
+        );
 
-};
+        await pikchr.loadWASM ();
 
-test ( pindex );
-test ( psize );
-test ( pspeed );
+        const output = pikchr.render ( markup );
+
+        t.is ( output, svg );
+
+      });
+
+    });
+
+  }
+
+});

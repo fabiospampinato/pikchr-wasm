@@ -1,12 +1,12 @@
 
 /* IMPORT */
 
-import * as MODULE from '../pikchr/pikchr.size.js';
+import Module from '../pikchr/pikchr.size.js';
 import generate from './generate';
 
 /* MAIN */
 
-const Pikchr = generate ( MODULE );
+const Pikchr = generate ( Module );
 
 /* EXPORT */
 
