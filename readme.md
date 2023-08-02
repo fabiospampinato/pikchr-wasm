@@ -18,7 +18,7 @@ import pikchr from 'pikchr-wasm'; // Default entrypoint, optimized for speed, ~7
 await pikchr.loadWASM (); // First of all you need to load the WASM instance and wait for it
 
 const markup = 'box'; // The markup to render
-const svg = pikchr.render ( compressed ); // You get an SVG as a string back
+const svg = pikchr.render ( markup ); // You get an SVG as a string back
 ```
 
 ## Licenses
