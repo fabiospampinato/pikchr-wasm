@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import once from 'once';
+import once from 'function-once';
 
 /* MAIN */
 
